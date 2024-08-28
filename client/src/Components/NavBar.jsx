@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function NavBar() {
 	return (
 		<nav className="bg-stone-800 p-4">
@@ -11,24 +13,18 @@ function NavBar() {
 				</div>
 				<div className="flex justify-between items-center">
 					<div className="hidden md:flex space-x-4">
-						<a href="#" className="text-white hover:text-gray-300">
+						<Link to="/" className="text-white hover:text-gray-300">
 							Blog
-						</a>
-
-						<a href="#" className="text-white hover:text-gray-300">
+						</Link>
+						<Link to="/wishlist" className="text-white hover:text-gray-300">
 							Wishlist
-						</a>
-						<a href="#" className="text-white hover:text-gray-300">
-							Screenshots
-						</a>
-
-						<a href="#" className="text-white hover:text-gray-300">
+						</Link>
+						<Link to="/media" className="text-white hover:text-gray-300">
+							Media
+						</Link>
+						<Link to="/about" className="text-white hover:text-gray-300">
 							About
-						</a>
-
-						<a href="#" className="text-white hover:text-gray-300">
-							Contact
-						</a>
+						</Link>
 					</div>
 				</div>
 			</div>
