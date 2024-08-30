@@ -1,9 +1,44 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+import BlogCard from "../Components/BlogCard";
+
+const API_URL = import.meta.env.VITE_API_URL;
+const devUsername = import.meta.env.VITE_DEV_USERNAME;
+
 function HomePage() {
+	const [blogPosts, setBlogPosts] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+
+	const getBlogPosts = async () => {
+		try {
+			const { data } = await axios.get(`${API_URL}username=${devUsername}`);
+			console.log(data);
+			setBlogPosts(data);
+			setIsLoading(false);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	useEffect(() => {
+		getBlogPosts();
+	}, []);
+
 	return (
-		<div>
-			<div className="bg-stone-700 text-gray-300 p-4">
-				<h1 className="text-2xl">Hello, Your Blog Post goes here</h1>
-			</div>
+		<div id="Blog-list" className="m-4">
+			{isLoading && <h1>Loading...</h1>}
+
+			{!isLoading &&
+				blogPosts.map((post) => (
+					<BlogCard
+						key={post.id}
+						imageSrcPath={post.cover_image}
+						title={post.title}
+						date={post.published_at.slice(0, 10)}
+						description={post.description}
+						sourceURL={post.canonical_url}
+					/>
+				))}
 		</div>
 	);
 }

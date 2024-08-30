@@ -12,7 +12,7 @@ function NavBar() {
 					/>
 				</div>
 				<div className="flex justify-between items-center">
-					<div className="hidden md:flex space-x-4">
+					<div className="flex space-x-4">
 						<Link to="/" className="text-white hover:text-gray-300">
 							Blog
 						</Link>
