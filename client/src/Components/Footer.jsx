@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 function Footer() {
 	return (
-		<footer className="bg-stone-800 text-gray-400 flex p-4 justify-between items-center">
-			<aside className="items-center">
-				<p>Offblast Softworks © 2024 - All right reserved</p>
+		<footer className="bg-stone-800 text-gray-400 flex flex-col md:flex-row p-4 justify-between items-center">
+			<aside>
+				<p className="text-center">Offblast Softworks © 2024</p>
 			</aside>
 			<div className="socials flex p-4 justify-around">
 				<ul className="flex justify-center items-center">
