@@ -5,11 +5,13 @@ function NavBar() {
 		<nav className="bg-stone-800 p-4">
 			<div className="container mx-auto flex justify-between align-middle">
 				<div>
-					<img
-						src="src/assets/watermark.png"
-						alt="idc logo"
-						className="rounded-xl w-10 h-11"
-					/>
+					<Link to="/">
+						<img
+							src="src/assets/watermark.png"
+							alt="idc logo"
+							className="rounded-xl w-10 h-11"
+						/>
+					</Link>
 				</div>
 				<div className="flex justify-between items-center">
 					<div className="flex space-x-4">
