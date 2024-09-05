@@ -14,7 +14,7 @@ function MediaPage() {
 
 	return (
 		<>
-			<div className="m-4">
+			<div className="m-4 sm:mx-8">
 				<h1 className="text-3xl mb-3">Images</h1>
 				<ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
 					<Masonry columnsCount={3} gutter="10px">

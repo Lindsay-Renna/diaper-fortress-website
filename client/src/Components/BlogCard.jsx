@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 function BlogCard({ imageSrcPath, title, date, description, sourceURL }) {
 	return (
-		<>
-			<h2 className="m-4">{date}</h2>
-			<div className="border-black border-solid border-2 rounded-lg flex justify-center flex-col w-90 m-4">
+		<div className="max-w-screen-md text-white">
+			<h2 className="ml-1 mb-2 mt-4 ">{date}</h2>
+			<div className="border-black border-solid border-2 rounded-lg flex flex-col w-full">
 				<img
+					className="rounded-lg"
 					src={
 						imageSrcPath
 							? `${imageSrcPath}`
@@ -25,7 +26,7 @@ function BlogCard({ imageSrcPath, title, date, description, sourceURL }) {
 					</Link>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
 

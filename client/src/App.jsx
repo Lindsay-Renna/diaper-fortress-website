@@ -1,17 +1,17 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NavBar from "./Components/NavBar";
 import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
 import MediaPage from "./Pages/MediaPage";
 import WishlistPage from "./Pages/WishlistPage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import Footer from "./Components/Footer";
+import Header from "./Components/Header";
 
 function App() {
 	return (
 		<>
 			<BrowserRouter>
-				<NavBar />
+				<Header />
 				<Routes>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/about" element={<AboutPage />} />
