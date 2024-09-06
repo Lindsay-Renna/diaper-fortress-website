@@ -24,12 +24,12 @@ function AdminPage() {
 	}, []);
 
 	return (
-		<div className="flex gap-8">
+		<div className="flex gap-8 grow">
 			<div className="w-3/4">
 				<h1 className="my-8 ml-8">Manage Posts</h1>
 				<div className="relative overflow-x-auto my-8 ml-8">
 					<table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-						<thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+						<thead className="text-xs text-gray-700 uppercase bg-stone-300 dark:bg-gray-700 dark:text-gray-400">
 							<tr>
 								<th scope="col" className="px-6 py-3">
 									Title
@@ -61,7 +61,7 @@ function AdminPage() {
 										</td>
 										<td className="py-4">
 											<img
-												className="w-5 m-2"
+												className="w-5 m-2 cursor-pointer transform transition-transform duration-300 hover:scale-110"
 												src="/icons/pencil.png"
 												alt="edit icon"
 											/>
@@ -69,7 +69,7 @@ function AdminPage() {
 										<td className="py-4">
 											{" "}
 											<img
-												className="w-5"
+												className="w-5 cursor-pointer transform transition-transform duration-300 hover:scale-110"
 												src="/icons/delete.svg"
 												alt="delete icon"
 											/>
@@ -85,7 +85,7 @@ function AdminPage() {
 				<Link to="/admin/compose">
 					<button
 						type="button"
-						className="focus:outline-none text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-900"
+						className="focus:outline-none text-white bg-stone-700 hover:bg-stone-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-900"
 					>
 						Add a Blog Post
 					</button>
