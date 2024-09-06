@@ -8,6 +8,8 @@ import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import AdminPage from "./Pages/AdminPage";
 import NewBlogPostPage from "./Pages/NewBlogPostPage";
+import LoginPage from "./Pages/LoginPage";
+import AuthFailPage from "./Pages/AuthFailPage";
 
 function App() {
 	return (
@@ -16,12 +18,14 @@ function App() {
 				<Header />
 				<Routes>
 					<Route path="/" element={<HomePage />} />
+					<Route path="/login" element={<LoginPage />} />
 					<Route path="/admin" element={<AdminPage />} />
 					<Route path="/admin/compose" element={<NewBlogPostPage />} />
 					<Route path="/about" element={<AboutPage />} />
 					<Route path="/media" element={<MediaPage />} />
 					<Route path="/wishlist" element={<WishlistPage />} />
 					<Route path="/*" element={<NotFoundPage />} />
+					<Route path="/auth-fail" element={<AuthFailPage />} />
 				</Routes>
 				<Footer />
 			</BrowserRouter>
