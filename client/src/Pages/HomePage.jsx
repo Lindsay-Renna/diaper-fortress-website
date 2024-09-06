@@ -25,7 +25,7 @@ function HomePage() {
 	}, []);
 
 	return (
-		<>
+		<main className="flex-grow">
 			<div
 				id="hero"
 				className="bg-[url('https://cdn.mos.cms.futurecdn.net/9GTJo42N2uEr99T8Svxava.png')] bg-auto bg-no-repeat bg-center min-h-screen -mt-20 -z-10 "
@@ -55,7 +55,7 @@ function HomePage() {
 						/>
 					))}
 			</div>
-		</>
+		</main>
 	);
 }
 
