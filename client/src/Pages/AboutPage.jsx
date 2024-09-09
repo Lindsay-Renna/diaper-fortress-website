@@ -1,9 +1,12 @@
 function AboutPage() {
 	return (
-		<div id="about-page" className="m-4 flex gap-12">
-			<article className="w-1/2">
-				<h1 className="text-3xl mb-4">Our Story</h1>
-				<p>
+		<main
+			id="about-page"
+			className="px-4 py-8 md:px-8 flex flex-col md:flex-row gap-12 dark:bg-stone-900 dark:text-white"
+		>
+			<article className="w-full md:w-1/2">
+				<h1 className="text-5xl mb-4">Our Story</h1>
+				<p className="text-2xl">
 					At the heart of our team lies a passion for both creativity and play.
 					What started as a light-hearted joke between a few indie game
 					developers quickly blossomed into a full-fledged project with a unique
@@ -29,7 +32,7 @@ function AboutPage() {
 					the lead.
 				</p>
 			</article>
-			<aside className="flex flex-col gap-8 w-1/2">
+			<aside className="flex flex-col gap-8 my-6 w-full md:w-1/2 md:justify-center">
 				<img
 					className="rounded-xl shadow-md"
 					src="/images/preview.jpg"
@@ -41,7 +44,7 @@ function AboutPage() {
 					alt="some cool sketch"
 				/>
 			</aside>
-		</div>
+		</main>
 	);
 }
 

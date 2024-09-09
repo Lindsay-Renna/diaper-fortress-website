@@ -2,7 +2,12 @@
 export default {
 	content: ["./src/**/*.{js,ts,jsx,tsx}", "./public/index.html"],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				oswald: ["oswald", "sans-serif"],
+				BenchNine: ["BenchNine", "sans-serif"],
+			},
+		},
 	},
 	plugins: [],
 };

@@ -5,7 +5,7 @@ export default function Header() {
 	const [isNavOpen, setIsNavOpen] = useState(false);
 
 	return (
-		<div className="flex items-center justify-between bg-stone-800 py-4 px-4">
+		<div className="flex items-center justify-between bg-stone-800 py-6 px-4 z-10">
 			<Link to="/">
 				<img
 					src="src/assets/watermark.png"
@@ -42,24 +42,32 @@ export default function Header() {
 								<line x1="6" y1="6" x2="18" y2="18" />
 							</svg>
 						</div>
-						<ul className="flex flex-col items-center justify-between min-h-[250px]">
+						<ul className="flex flex-col items-center justify-between min-h-[250px] font-oswald">
 							<li className="border-b border-gray-400 my-8 uppercase hover:text-stone-600">
-								<Link to="/">Blog</Link>
+								<Link to="/" onClick={() => setIsNavOpen(false)}>
+									Blog
+								</Link>
 							</li>
 							<li className="border-b border-gray-400 my-8 uppercase hover:text-stone-600 ">
-								<Link to="/wishlist">Wishlist</Link>
+								<Link to="/wishlist" onClick={() => setIsNavOpen(false)}>
+									Wishlist
+								</Link>
 							</li>
 							<li className="border-b border-gray-400 my-8 uppercase hover:text-stone-600">
-								<Link to="/media">Media</Link>
+								<Link to="/media" onClick={() => setIsNavOpen(false)}>
+									Media
+								</Link>
 							</li>
 							<li className="border-b border-gray-400 my-8 uppercase hover:text-stone-600">
-								<Link to="/about">About</Link>
+								<Link to="/about" onClick={() => setIsNavOpen(false)}>
+									About
+								</Link>
 							</li>
 						</ul>
 					</div>
 				</section>
 
-				<ul className="DESKTOP-MENU hidden space-x-8 lg:flex mr-2">
+				<ul className="DESKTOP-MENU hidden space-x-8 lg:flex mr-2 font-oswald">
 					<li>
 						<Link className="text-white hover:text-gray-300" to="/">
 							Home
