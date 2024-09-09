@@ -1,6 +1,17 @@
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { useInView } from "react-intersection-observer";
 
 function MediaPage() {
+	const [imagesRef, imagesInView] = useInView({
+		triggerOnce: true,
+		threshold: 0.1,
+	});
+
+	const [videosRef, videosInView] = useInView({
+		triggerOnce: true,
+		threshold: 0.1,
+	});
+
 	const images = [
 		"images/media1.jpg",
 		"images/media2.jpg",
@@ -14,7 +25,12 @@ function MediaPage() {
 
 	return (
 		<main className="dark:bg-stone-900">
-			<div className="m-4 sm:mx-8">
+			<div
+				ref={imagesRef}
+				className={`m-4 sm:mx-8 ${
+					imagesInView ? "animate__animated animate__fadeInUpBig" : "opacity-0"
+				}`}
+			>
 				<h1 className="text-3xl mb-3 dark:text-white text-center md:text-left">
 					Images
 				</h1>
@@ -34,7 +50,12 @@ function MediaPage() {
 					</Masonry>
 				</ResponsiveMasonry>
 			</div>
-			<div className="m-4 mt-12 sm:mx-8">
+			<div
+				ref={videosRef}
+				className={`m-4 mt-12 sm:mx-8 ${
+					videosInView ? "animate__animated animate__fadeInUpBig" : "opacity-0"
+				}`}
+			>
 				<h1 className="text-3xl mb-3 dark:text-white text-center md:text-left">
 					Videos
 				</h1>

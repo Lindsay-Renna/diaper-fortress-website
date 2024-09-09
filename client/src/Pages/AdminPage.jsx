@@ -31,7 +31,7 @@ function AdminPage() {
 					<h1 className="my-8 ml-8">Manage Posts</h1>
 					<div className="relative overflow-x-auto my-8 ml-8">
 						<table className="w-full text-sm text-left rtl:text-right text-stone-500 dark:text-stone-400">
-							<thead className="text-xs text-stone-700 uppercase bg-stone-300 dark:bg-stone-700 dark:text-stone-400">
+							<thead className="text-xs text-stone-700 uppercase bg-stone-300 dark:bg-stone-700 dark:text-stone-400 text-lg">
 								<tr>
 									<th scope="col" className="px-6 py-3">
 										Title
@@ -54,9 +54,11 @@ function AdminPage() {
 										>
 											<th
 												scope="row"
-												className="px-6 py-4 font-medium text-stone-900 whitespace-nowrap dark:text-white"
+												className="text-lg px-6 py-4 font-medium text-stone-900 whitespace-nowrap dark:text-white"
 											>
-												{post.title}
+												<Link to={post.url} target="_blank">
+													{post.title}
+												</Link>
 											</th>
 											<td className="px-6 py-4">
 												{new Date(post.published_at).toLocaleDateString()}
