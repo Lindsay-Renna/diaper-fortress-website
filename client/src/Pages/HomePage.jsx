@@ -52,6 +52,7 @@ function HomePage() {
 							date={post.published_at.slice(0, 10)}
 							description={post.description}
 							sourceURL={post.canonical_url}
+							author={post.user.name}
 						/>
 					))}
 			</div>

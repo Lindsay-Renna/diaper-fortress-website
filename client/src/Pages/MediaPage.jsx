@@ -13,9 +13,11 @@ function MediaPage() {
 	const videos = ["QKgTZWbwD1U", "LOhfqjmasi0"];
 
 	return (
-		<>
+		<main className="dark:bg-stone-900">
 			<div className="m-4 sm:mx-8">
-				<h1 className="text-3xl mb-3">Images</h1>
+				<h1 className="text-3xl mb-3 dark:text-white text-center md:text-left">
+					Images
+				</h1>
 				<ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
 					<Masonry columnsCount={3} gutter="10px">
 						{images.map((image, i) => (
@@ -32,8 +34,10 @@ function MediaPage() {
 					</Masonry>
 				</ResponsiveMasonry>
 			</div>
-			<div className="m-4">
-				<h1 className="text-3xl mb-3">Videos</h1>
+			<div className="m-4 mt-12 sm:mx-8">
+				<h1 className="text-3xl mb-3 dark:text-white text-center md:text-left">
+					Videos
+				</h1>
 				<ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 2 }}>
 					<Masonry columnsCount={2} gutter="20px">
 						{videos.map((video, i) => (
@@ -52,7 +56,7 @@ function MediaPage() {
 					</Masonry>
 				</ResponsiveMasonry>
 			</div>
-		</>
+		</main>
 	);
 }
 

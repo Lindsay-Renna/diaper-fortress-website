@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
-function BlogCard({ imageSrcPath, title, date, description, sourceURL }) {
+function BlogCard({
+	imageSrcPath,
+	title,
+	date,
+	description,
+	sourceURL,
+	author,
+}) {
 	return (
 		<div className="max-w-screen-md text-white">
-			<h2 className="ml-1 mb-2 mt-4 ">{date}</h2>
+			<h2 className="ml-1 mb-2 mt-4 ">
+				{date} - Written by {author}
+			</h2>
 			<div className="border-black border-solid border-2 rounded-lg flex flex-col w-full">
 				<img
 					className="rounded-lg"
@@ -17,7 +26,7 @@ function BlogCard({ imageSrcPath, title, date, description, sourceURL }) {
 				/>
 				<div className="p-4">
 					<h1 className="text-3xl mb-4">{title}</h1>
-					<p className="">{description}</p>
+					<p className="text-xl">{description}</p>
 				</div>
 				<div className=" p-4 buttons flex gap-5 text-teal-700 font-bold">
 					<p>SHARE</p>
