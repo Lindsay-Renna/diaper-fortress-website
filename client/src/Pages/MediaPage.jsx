@@ -1,11 +1,62 @@
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
-import Modal from "../Components/Modal";
+import Lightbox from "yet-another-react-lightbox";
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Video from "yet-another-react-lightbox/plugins/video";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Download from "yet-another-react-lightbox/plugins/download";
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/captions.css";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
+
+const images = [
+	{
+		src: "images/media1.jpg",
+		width: 3840,
+		height: 5760,
+		title: "Puppy in sunglasses",
+	},
+	{
+		src: "images/media2.jpg",
+		width: 3840,
+		height: 5760,
+		title: "Puppy in sunglasses",
+	},
+	{
+		src: "images/media3.jpg",
+		width: 3840,
+		height: 5760,
+		title: "Puppy in sunglasses",
+	},
+	{
+		src: "images/media4.jpg",
+		width: 3840,
+		height: 5760,
+		title: "Puppy in sunglasses",
+	},
+	{
+		src: "images/media5.jpg",
+		width: 3840,
+		height: 5760,
+		title: "Puppy in sunglasses",
+	},
+	{
+		src: "images/media6.jpg",
+		width: 3840,
+		height: 5760,
+		title: "Puppy in sunglasses",
+	},
+];
+
+const videos = ["QKgTZWbwD1U", "LOhfqjmasi0"];
 
 function MediaPage() {
-	const [modalOpen, setModalOpen] = useState(false);
-	const [activeImage, setActiveImage] = useState(images[0]);
+	const [lightboxOpen, setLightboxOpen] = useState(false);
+	const [index, setIndex] = useState(0);
 
 	const [imagesRef, imagesInView] = useInView({
 		triggerOnce: true,
@@ -17,16 +68,10 @@ function MediaPage() {
 		threshold: 0.1,
 	});
 
-	const images = [
-		"images/media1.jpg",
-		"images/media2.jpg",
-		"images/media3.jpg",
-		"images/media4.jpg",
-		"images/media5.jpg",
-		"images/media6.jpg",
-	];
-
-	const videos = ["QKgTZWbwD1U", "LOhfqjmasi0"];
+	const openLightbox = (index) => {
+		setLightboxOpen(true);
+		setIndex(index);
+	};
 
 	return (
 		<main className="dark:bg-stone-900">
@@ -44,10 +89,9 @@ function MediaPage() {
 						{images.map((image, i) => (
 							<img
 								key={i}
-								src={image}
-								data-modal-target="extralarge-modal"
-								data-modal-toggle="extralarge-modal"
-								className="w-full block rounded-lg"
+								src={image.src}
+								className="w-full block rounded-lg cursor-pointer"
+								onClick={() => openLightbox(i)}
 							/>
 						))}
 					</Masonry>
@@ -75,7 +119,20 @@ function MediaPage() {
 					</Masonry>
 				</ResponsiveMasonry>
 			</div>
-			<Modal />
+			<Lightbox
+				open={lightboxOpen}
+				close={() => setLightboxOpen(false)}
+				slides={images}
+				plugins={[
+					Captions,
+					Download,
+					Fullscreen,
+					Slideshow,
+					Thumbnails,
+					Video,
+					Zoom,
+				]}
+			/>
 		</main>
 	);
 }

@@ -1,6 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap");
 
 #root {
 	display: flex;
@@ -8,8 +9,6 @@
 	min-height: 100svh;
 	font-family: "BenchNine", "sans-serif";
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap");
 
 .spicy {
 	font-family: "Bungee Spice";
