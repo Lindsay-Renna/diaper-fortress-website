@@ -1,7 +1,12 @@
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { useInView } from "react-intersection-observer";
+import { useState } from "react";
+import Modal from "../Components/Modal";
 
 function MediaPage() {
+	const [modalOpen, setModalOpen] = useState(false);
+	const [activeImage, setActiveImage] = useState(images[0]);
+
 	const [imagesRef, imagesInView] = useInView({
 		triggerOnce: true,
 		threshold: 0.1,
@@ -40,11 +45,9 @@ function MediaPage() {
 							<img
 								key={i}
 								src={image}
-								style={{
-									width: "100%",
-									display: "block",
-									borderRadius: "10px",
-								}}
+								data-modal-target="extralarge-modal"
+								data-modal-toggle="extralarge-modal"
+								className="w-full block rounded-lg"
 							/>
 						))}
 					</Masonry>
@@ -66,17 +69,13 @@ function MediaPage() {
 								key={i}
 								sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation"
 								src={`https://youtube.com/embed/${video}?autoplay=0`}
-								style={{
-									width: "100%",
-									height: "400px",
-									display: "block",
-									borderRadius: "10px",
-								}}
+								className="w-full h-[400px] block rounded-lg"
 							></iframe>
 						))}
 					</Masonry>
 				</ResponsiveMasonry>
 			</div>
+			<Modal />
 		</main>
 	);
 }
