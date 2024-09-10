@@ -90,7 +90,7 @@ function MediaPage() {
 							<img
 								key={i}
 								src={image.src}
-								className="w-full block rounded-lg cursor-pointer"
+								className="w-full block rounded-lg cursor-pointer hover:opacity-80 transform transition-transform duration-300"
 								onClick={() => openLightbox(i)}
 							/>
 						))}
@@ -123,6 +123,7 @@ function MediaPage() {
 				open={lightboxOpen}
 				close={() => setLightboxOpen(false)}
 				slides={images}
+				index={index}
 				plugins={[
 					Captions,
 					Download,
