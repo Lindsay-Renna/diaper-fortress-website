@@ -6,6 +6,7 @@ export default {
 			fontFamily: {
 				oswald: ["oswald", "sans-serif"],
 				BenchNine: ["BenchNine", "sans-serif"],
+				BungeeSpice: ['"Bungee Spice"', "sans-serif"],
 			},
 		},
 	},

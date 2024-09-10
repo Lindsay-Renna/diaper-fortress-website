@@ -14,9 +14,8 @@ function BlogCard({
 			<h2 className="ml-1 mb-2 mt-4 ">
 				{date} - Written by {author}
 			</h2>
-			<div className="border-black border-solid border-2 rounded-lg flex flex-col w-full">
+			<div className="border-black border-solid border-2 rounded-lg flex flex-col w-full bg-zinc-800">
 				<img
-					className="rounded-lg"
 					src={
 						imageSrcPath
 							? `${imageSrcPath}`
