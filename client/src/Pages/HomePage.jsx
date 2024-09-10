@@ -38,13 +38,13 @@ function HomePage() {
 					</p>
 				</div>
 			</div>
-			<div className="flex justify-center bg-zinc-900"></div>
-			<h1 className="spicy text-center bg-zinc-900 text-[clamp(2.5rem,7vw,4rem)] pt-14">
+			<div className="flex justify-center bg-zinc-300 dark:bg-zinc-900"></div>
+			<h1 className="spicy text-center bg-zinc-50 dark:bg-zinc-900 text-[clamp(2.5rem,7vw,4rem)] pt-14 shadow-black shadow-lg">
 				From the Developer
 			</h1>
 			<div
 				id="Blog-list"
-				className="p-1 flex flex-col gap-8 items-center w-full sm:p-12 bg-zinc-900"
+				className="p-1 flex flex-col gap-8 items-center w-full sm:p-12 bg-zinc-50 dark:bg-zinc-900"
 			>
 				{isLoading && <h1>Loading...</h1>}
 
