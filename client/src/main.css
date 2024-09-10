@@ -8,3 +8,17 @@
 	min-height: 100svh;
 	font-family: "BenchNine", "sans-serif";
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap");
+
+.spicy {
+	font-family: "Bungee Spice";
+	font-palette: --colorized;
+	/* color: #c000e6; */
+}
+
+@font-palette-values --colorized {
+	font-family: "Bungee Spice";
+	base-palette: 1;
+	override-colors: 0 #4000fa, 1 #ff095, 2 #004433;
+}

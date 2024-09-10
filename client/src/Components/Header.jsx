@@ -8,7 +8,7 @@ export default function Header() {
 		<div className="flex items-center justify-between bg-stone-800 py-6 px-4 z-10">
 			<Link to="/">
 				<img
-					src="src/assets/watermark.png"
+					src="/icons/watermark.png"
 					alt="idc logo"
 					className="rounded-xl w-10 h-11 ml-2"
 				/>
