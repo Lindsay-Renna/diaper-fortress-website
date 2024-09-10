@@ -26,10 +26,18 @@ function HomePage() {
 
 	return (
 		<main className="flex-grow">
-			<div
-				id="hero"
-				className="bg-[url('https://cdn.mos.cms.futurecdn.net/9GTJo42N2uEr99T8Svxava.png')] bg-auto bg-no-repeat bg-center min-h-screen -mt-20 -z-10"
-			></div>
+			<div id="hero" className="relative flex min-h-screen -mt-20 -z-10">
+				<div className="absolute inset-0 bg-[url('https://cdn.mos.cms.futurecdn.net/9GTJo42N2uEr99T8Svxava.png')] bg-auto bg-no-repeat bg-center opacity-50"></div>
+				<div className="absolute inset-0 bg-black opacity-50"></div>
+				<div className="relative z-10 text-black w-full flex flex-col grow justify-center text-3xl">
+					<h1 className="text-8xl drop-shadow-2xl text-white my-4 mx-auto -mt-28">
+						Build, Play, Thrive.
+					</h1>
+					<p className="drop-shadow-lg text-white mx-auto my-4">
+						Where Tiny Heroes Conquer Big Adventures!
+					</p>
+				</div>
+			</div>
 			<div className="flex justify-center bg-zinc-900"></div>
 			<h1 className="spicy text-center bg-zinc-900 text-[clamp(2.5rem,7vw,4rem)] pt-14">
 				From the Developer
