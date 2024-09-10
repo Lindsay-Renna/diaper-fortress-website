@@ -26,17 +26,20 @@ function AdminPage() {
 
 	if (isLoggedIn) {
 		return (
-			<div className="flex gap-8 grow  dark:bg-stone-900">
-				<div className="w-3/4">
-					<h1 className="my-8 ml-8">Manage Posts</h1>
-					<div className="relative overflow-x-auto my-8 ml-8">
+			<div className="flex flex-col gap-2 sm:flex-row sm:px-6 sm:gap-8 grow md:justify-center dark:bg-stone-900">
+				<div className="px-4 pt-4 flex-grow max-w-screen-lg">
+					<h1 className="text-white text-xl my-6">Manage Posts</h1>
+					<div className="relative overflow-x-auto">
 						<table className="w-full text-sm text-left rtl:text-right text-stone-500 dark:text-stone-400">
-							<thead className="text-xs text-stone-700 uppercase bg-stone-300 dark:bg-stone-700 dark:text-stone-400 text-lg">
+							<thead className="text-stone-700 uppercase bg-stone-300 dark:bg-stone-700 dark:text-stone-400 text-lg">
 								<tr>
 									<th scope="col" className="px-6 py-3">
 										Title
 									</th>
-									<th scope="col" className="px-6 py-3">
+									<th
+										scope="col"
+										className="px-6 py-3 text-center hidden sm:visible"
+									>
 										Date Posted
 									</th>
 									<th scope="col" className="py-3"></th>
@@ -60,7 +63,7 @@ function AdminPage() {
 													{post.title}
 												</Link>
 											</th>
-											<td className="px-6 py-4">
+											<td className="px-6 py-4 hidden sm:visible">
 												{new Date(post.published_at).toLocaleDateString()}
 											</td>
 											<td className="py-4">
@@ -71,7 +74,6 @@ function AdminPage() {
 												/>
 											</td>
 											<td className="py-4">
-												{" "}
 												<img
 													className="w-5 cursor-pointer transform transition-transform duration-300 hover:scale-110"
 													src="/icons/delete.svg"
@@ -85,11 +87,11 @@ function AdminPage() {
 						</table>
 					</div>
 				</div>
-				<div className="w-1/4 text-center my-8">
+				<div className="text-center mt-4 sm:my-8 -order-1 sm:order-1">
 					<Link to="/admin/compose">
 						<button
 							type="button"
-							className="focus:outline-none text-white bg-stone-700 hover:bg-stone-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-900"
+							className="focus:outline-none text-white bg-stone-700 hover:bg-stone-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-8 py-4 mb-3 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-900"
 						>
 							Add a Blog Post
 						</button>
