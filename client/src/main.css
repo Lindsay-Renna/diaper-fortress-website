@@ -21,3 +21,19 @@
 	base-palette: 1;
 	override-colors: 0 #a3b18a, 1 #283618;
 }
+
+.pulse {
+	animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgb(33, 87, 40);
+	}
+	70% {
+		box-shadow: 0 0 0 10px rgba(88, 120, 243, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 50px rgba(88, 120, 243, 0);
+	}
+}
