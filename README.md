@@ -29,6 +29,6 @@ To view a local copy of the app:
 
 1. Start the development server:
    ```
-   npm start
+   npm run dev
    ```
 2. Open your web browser and visit `http://localhost:5173`
