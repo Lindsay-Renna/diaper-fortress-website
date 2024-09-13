@@ -10,15 +10,19 @@ Before you begin, ensure you have met the following requirements:
 
 To install the project, follow these steps:
 
+0. Ensure you have `Vite` (pronounced Vy-te) installed:
+   ```
+   brew install vite
+   ```
 1. Clone the repository:
    ```
    git clone https://github.com/Lindsay-Renna/diaper-fortress-website.git
    ```
-2. Navigate to the frontend directory:
+3. Navigate to the frontend directory:
    ```
    cd diaper-fortress-website/client
    ```
-3. Install the dependencies:
+4. Install the dependencies:
    ```
    npm install
    ```
