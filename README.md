@@ -16,7 +16,7 @@ To install the project, follow these steps:
    ```
 2. Navigate to the frontend directory:
    ```
-   cd client
+   cd diaper-fortress-website/client
    ```
 3. Install the dependencies:
    ```
