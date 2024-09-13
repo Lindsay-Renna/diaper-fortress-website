@@ -4,6 +4,9 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
+				NovaFlat: ["Nova Flat", "sans-serif"],
+				NovaMono: ["Nova Mono", "sans-serif"],
+				MedievalSharp: ["MedievalSharp", "sans-serif"],
 				oswald: ["oswald", "sans-serif"],
 				BenchNine: ["BenchNine", "sans-serif"],
 				BungeeSpice: ['"Bungee Spice"', "sans-serif"],
