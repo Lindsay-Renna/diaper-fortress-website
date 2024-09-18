@@ -87,12 +87,14 @@ function MediaPage() {
 				<ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
 					<Masonry columnsCount={3} gutter="10px">
 						{images.map((image, i) => (
-							<img
-								key={i}
-								src={image.src}
-								className="w-full block rounded-lg cursor-pointer hover:opacity-80 transform transition-transform duration-300"
-								onClick={() => openLightbox(i)}
-							/>
+							<div key={i} className="overflow-hidden rounded-lg">
+								<img
+									key={i}
+									src={image.src}
+									className="w-full block cursor-pointer hover:scale-110 transform transition-transform ease-in-out duration-300"
+									onClick={() => openLightbox(i)}
+								/>
+							</div>
 						))}
 					</Masonry>
 				</ResponsiveMasonry>

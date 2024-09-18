@@ -19,16 +19,16 @@
 @font-palette-values --colorized {
 	font-family: "Bungee Spice";
 	base-palette: 1;
-	override-colors: 0 #a3b18a, 1 #283618;
+	override-colors: 0 #564c7c, 1 #39385a;
 }
 
-.pulse {
-	animation: pulse 2s ease infinite;
+.pulse-purple {
+	animation: pulse-purple 2s ease infinite;
 }
 
-@keyframes pulse {
+@keyframes pulse-purple {
 	0% {
-		box-shadow: 0 0 0 0 rgb(33, 87, 40);
+		box-shadow: 0 0 0 0 #39385a;
 	}
 	70% {
 		box-shadow: 0 0 0 10px rgba(88, 120, 243, 0);
@@ -36,4 +36,16 @@
 	100% {
 		box-shadow: 0 0 0 50px rgba(88, 120, 243, 0);
 	}
+}
+
+/* Zoom In #1 */
+.hover-zoom img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: 0.3s ease-in-out;
+	transition: 0.3s ease-in-out;
+}
+.hover-zoom:hover img {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
 }

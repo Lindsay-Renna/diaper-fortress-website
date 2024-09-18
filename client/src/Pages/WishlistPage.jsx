@@ -12,7 +12,7 @@ function WishlistPage() {
 							href="https://store.steampowered.com/app/37230/Diaper_Dash/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="pulse min-h-[130px] flex items-center justify-center text-center text-[clamp(2.5rem,7vw,4rem)] min-w-fit shadow-md text-white border rounded-lg bg-stone-700 p-4 hover:bg-stone-800 transition-colors"
+							className=" min-h-[130px] flex items-center justify-center text-center text-[clamp(2.5rem,7vw,4rem)] min-w-fit shadow-md text-white border rounded-lg bg-mytharra-purple p-4 hover:bg-mytharra-purple-dark transition-colors"
 						>
 							Wishlist on Steam
 						</a>
@@ -25,13 +25,13 @@ function WishlistPage() {
 							type="email"
 							id="email"
 							className="bg-gray-50 border border-stone-300 text-stone-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 sm:grow max-w-96"
-							placeholder="name@flowbite.com"
+							placeholder="name@example.com"
 							required
 						/>
 
 						<button
 							type="submit"
-							className="pulse focus:outline-none text-white bg-stone-700 hover:bg-stone-800 focus:ring-4 focus:ring-stone-300 font-medium rounded-lg text-lg px-8 py-2 dark:bg-stone-600 dark:hover:bg-stone-700 dark:focus:ring-stone-900 min-w-fit sm:text-xl"
+							className="pulse-purple focus:outline-none text-white bg-stone-700 hover:bg-stone-800 focus:ring-4 focus:ring-stone-300 font-medium rounded-lg text-lg px-8 py-2 dark:bg-stone-600 dark:hover:bg-stone-700 dark:focus:ring-stone-900 min-w-fit sm:text-xl"
 						>
 							Notify Me!
 						</button>

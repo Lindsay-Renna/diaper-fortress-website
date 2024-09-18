@@ -7,11 +7,7 @@ export default function Header() {
 	return (
 		<div className="flex items-center justify-between bg-stone-800 py-6 px-4 z-10">
 			<Link to="/">
-				<img
-					src="/icons/watermark.png"
-					alt="idc logo"
-					className="rounded-xl w-10 h-11 ml-2"
-				/>
+				<img className="w-40" src="/icons/mytharra.png" alt="Mytharra logo" />
 			</Link>
 			<nav>
 				<section className="MOBILE-MENU flex lg:hidden">
