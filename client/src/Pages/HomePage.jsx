@@ -29,11 +29,11 @@ function HomePage() {
 			<div id="hero" className="relative flex min-h-screen -mt-20 -z-10">
 				<div className="absolute inset-0 bg-[url('https://cdn.mos.cms.futurecdn.net/9GTJo42N2uEr99T8Svxava.png')] bg-auto bg-no-repeat bg-center opacity-50"></div>
 				<div className="absolute inset-0 bg-black opacity-50"></div>
-				<div className="relative z-10 text-black w-full flex flex-col grow justify-center text-3xl">
-					<h1 className="text-8xl drop-shadow-2xl text-white my-4 mx-auto -mt-28">
+				<div className="relative z-10 text-black w-full flex flex-col grow justify-center items-center text-3xl gap-8">
+					<h1 className="text-8xl drop-shadow-2xl text-white">
 						Build, Play, Thrive.
 					</h1>
-					<p className="drop-shadow-lg text-white mx-auto my-4">
+					<p className="drop-shadow-lg text-white">
 						Where Tiny Heroes Conquer Big Adventures!
 					</p>
 				</div>

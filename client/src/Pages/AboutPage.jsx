@@ -32,7 +32,7 @@ function AboutPage() {
 					the lead.
 				</p>
 			</article>
-			<aside className="flex flex-col gap-8 my-6 w-full md:w-1/2 md:justify-center">
+			<aside className="flex flex-col gap-8 my-6 w-full md:w-1/2 enter">
 				<img
 					className="rounded-xl shadow-md animate__animated animate__fadeInRight"
 					src="/images/preview.jpg"
