@@ -27,7 +27,7 @@ function BlogCard({
 					<h1 className="text-3xl mb-4">{title}</h1>
 					<p className="text-xl">{description}</p>
 				</div>
-				<div className=" p-4 buttons flex gap-5 text-teal-700 font-bold">
+				<div className=" p-4 buttons flex gap-5 text-teal-700">
 					<p>SHARE</p>
 					<Link to={sourceURL} target="blank">
 						<p>READ MORE</p>
