@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function LoginPanel() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
-	const history = useHistory();
+	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -15,7 +15,7 @@ function LoginPanel() {
 				password,
 			});
 			localStorage.setItem("token", res.data.token);
-			history.push("/admin");
+			navigate("/admin");
 		} catch (err) {
 			console.error("Invalid login", err);
 		}

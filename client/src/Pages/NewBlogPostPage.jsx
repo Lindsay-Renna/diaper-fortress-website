@@ -1,9 +1,7 @@
-import Counter from "../Components/Counter";
-
 function NewBlogPostPage() {
 	return (
 		<div>
-			<Counter />
+			<p>Hello</p>
 		</div>
 	);
 }
