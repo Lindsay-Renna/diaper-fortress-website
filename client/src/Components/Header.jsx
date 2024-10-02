@@ -7,7 +7,7 @@ export default function Header() {
 	return (
 		<div className="flex items-center justify-between bg-stone-800 py-6 px-4 z-10">
 			<Link to="/">
-				<img className="w-40" src="/icons/mytharra.png" alt="Mytharra logo" />
+				<img className="w-40 transform transition duration-300 hover:scale-105" src="/icons/mytharra.png" alt="Mytharra logo" />
 			</Link>
 			<nav>
 				<section className="MOBILE-MENU flex lg:hidden">

@@ -21,7 +21,7 @@ app.use("/auth", authRoutes);
 const PORT = process.env.PORT || 8080;
 
 app.get("/api", (req, res) => {
-	res.send("Welcome to the Diaper Fortress API");
+	res.send("Welcome to the Mytharra API");
 });
 
 app.listen(PORT, () => {
