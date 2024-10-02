@@ -1,9 +1,18 @@
+import NotAuthorized from '../Components/NotAuthorized';
+import { useAuth } from '../hooks/AuthProvider';
+
 function NewBlogPostPage() {
-	return (
-		<div>
-			<p>Hello</p>
-		</div>
-	);
+  const { isAdmin } = useAuth();
+
+  if (!isAdmin) {
+    return <NotAuthorized />;
+  }
+
+  return (
+    <div>
+      <p>Hello, let's write a blog post today 😃</p>
+    </div>
+  );
 }
 
 export default NewBlogPostPage;

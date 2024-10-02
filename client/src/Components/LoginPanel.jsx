@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AlertBox from './AlertBox';
 import { useAuth } from '../hooks/AuthProvider';
@@ -10,8 +10,8 @@ function LoginPanel() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const { isAdmin, login } = useAuth();
   const navigate = useNavigate();
-  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,6 +40,12 @@ function LoginPanel() {
     }
     setError(''); // Clear the error message
   };
+
+  useEffect(() => {
+    if (isAdmin) {
+      navigate('/admin');
+    }
+  }, [isAdmin, navigate]);
 
   return (
     <section className="bg-gray-50 dark:bg-stone-900 grow items-center justify-center">
