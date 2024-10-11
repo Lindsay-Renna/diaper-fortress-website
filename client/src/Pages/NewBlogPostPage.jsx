@@ -10,7 +10,6 @@ function NewBlogPostPage() {
   const { isAdmin } = useAuth();
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
-  const [tags, setTags] = useState([]);
 
   if (!isAdmin) {
     return <NotAuthorized />;
@@ -44,6 +43,7 @@ function NewBlogPostPage() {
           required
           onChange={handleTitleChange}
         ></input>
+
         <div className="flex flex-col items-center w-full max-w-screen-xl">
           <BlogEditor content={content} setContent={setContent} />
           <button

@@ -3,6 +3,8 @@ import cors from "cors";
 import "dotenv/config";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.js";
+import blogRoutes from "./routes/blog.js";
+import mongoose from "mongoose";
 
 dotenv.config();
 
@@ -16,7 +18,11 @@ app.use(
 	})
 );
 
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI,{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>console.log("MongoDB connected")).catch((err)=>console.error("MongoDB connection error:",err));
+
 app.use("/auth", authRoutes);
+app.use("/blog", blogRoutes);
 
 const PORT = process.env.PORT || 8080;
 
