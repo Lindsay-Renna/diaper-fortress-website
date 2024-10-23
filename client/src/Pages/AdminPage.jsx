@@ -7,6 +7,7 @@ import { useAuth } from '../hooks/AuthProvider';
 
 const API_URL = import.meta.env.VITE_API_URL;
 const devUsername = import.meta.env.VITE_DEV_USERNAME;
+const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
 function AdminPage() {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -15,13 +16,34 @@ function AdminPage() {
 
   const getBlogPosts = async () => {
     try {
-      const { data } = await axios.get(`${API_URL}username=${devUsername}`);
+      const { data } = await axios.get(`${SERVER_URL}/blog/posts`);
       console.log(data);
       setBlogPosts(data);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
       setIsLoading(false);
+    }
+  };
+
+  const deletePost = async (postId) => {
+    try {
+      const response = await axios.delete(`${SERVER_URL}/blog/posts/${postId}`);
+      console.log('Post deleted successfully:', response.data);
+      setBlogPosts((prevPosts) =>
+        prevPosts.filter((post) => post._id !== postId)
+      );
+    } catch (error) {
+      console.error(
+        'Error deleting post:',
+        error.response ? error.response.data : error.message
+      );
+    }
+  };
+
+  const handleDelete = (postId) => {
+    if (window.confirm('Are you sure you want to delete this post?')) {
+      deletePost(postId);
     }
   };
 
@@ -64,31 +86,32 @@ function AdminPage() {
                   {blogPosts.map((post) => (
                     <tr
                       className="bg-white border-b dark:bg-stone-800 dark:border-stone-700"
-                      key={post.id}
+                      key={post._id}
                     >
                       <th
                         scope="row"
                         className="text-lg px-6 py-4 font-medium text-stone-900 whitespace-nowrap dark:text-white"
                       >
-                        <Link to={post.url} target="_blank">
-                          {post.title}
-                        </Link>
+                        {post.title}
                       </th>
                       <td className="px-6 py-4 hidden sm:table-cell">
-                        {new Date(post.published_at).toLocaleDateString()}
+                        {new Date(post.createdAt).toLocaleDateString()}
                       </td>
                       <td className="py-4">
-                        <img
-                          className="w-5 m-2 cursor-pointer transform transition-transform duration-300 hover:scale-110"
-                          src="/icons/pencil.png"
-                          alt="edit icon"
-                        />
+                        <Link to={`/admin/edit/${post._id}`}>
+                          <img
+                            className="w-5 m-2 cursor-pointer transform transition-transform duration-300 hover:scale-110"
+                            src="/icons/pencil.png"
+                            alt="edit icon"
+                          />
+                        </Link>
                       </td>
                       <td className="py-4">
                         <img
                           className="w-5 cursor-pointer transform transition-transform duration-300 hover:scale-110"
                           src="/icons/delete.svg"
                           alt="delete icon"
+                          onClick={() => handleDelete(post._id)}
                         />
                       </td>
                     </tr>

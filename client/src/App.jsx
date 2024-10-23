@@ -11,6 +11,7 @@ import NewBlogPostPage from './Pages/NewBlogPostPage';
 import LoginPage from './Pages/LoginPage';
 import AuthFailPage from './Pages/AuthFailPage';
 import { AuthProvider } from './hooks/AuthProvider';
+import EditBlogPostPage from './Pages/EditBlogPostPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/admin/compose" element={<NewBlogPostPage />} />
+            <Route path="/admin/edit/:id" element={<EditBlogPostPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/media" element={<MediaPage />} />
             <Route path="/wishlist" element={<WishlistPage />} />

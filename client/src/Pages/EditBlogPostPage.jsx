@@ -1,14 +1,16 @@
 import BlogEditor from '../Components/BlogEditor';
 import NotAuthorized from '../Components/NotAuthorized';
+import { useParams } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthProvider';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
-function NewBlogPostPage() {
+function EditBlogPostPage() {
   const { isAdmin } = useAuth();
+  const { id } = useParams();
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
   const [videoURL, setVideoURL] = useState('');
@@ -18,6 +20,17 @@ function NewBlogPostPage() {
   if (!isAdmin) {
     return <NotAuthorized />;
   }
+
+  const getBlogPost = async (postID) => {
+    try {
+      const { data } = await axios.get(`${SERVER_URL}/blog/posts/${postID}`);
+      setTitle(data.title);
+      setVideoURL(data.videoURL);
+      setContent(data.content);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -29,17 +42,20 @@ function NewBlogPostPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newPost = { title, videoURL, content };
+    const updatedPost = { title, videoURL, content };
 
     try {
-      const response = await axios.post(`${SERVER_URL}/blog/posts`, newPost);
+      const response = await axios.put(
+        `${SERVER_URL}/blog/posts/${id}`,
+        updatedPost
+      );
       console.log('Server response:', response.data);
       setShowSuccessPopup(true);
       setTimeout(() => {
         setShowSuccessPopup(false);
         navigate('/admin');
       }, 2000);
-      console.log('Post submitted successfully');
+      console.log('Post updated successfully');
     } catch (error) {
       console.error(
         'Error:',
@@ -48,6 +64,12 @@ function NewBlogPostPage() {
       console.log('There was an issue submitting your post ☹');
     }
   };
+
+  useEffect(() => {
+    if (id) {
+      getBlogPost(id);
+    }
+  }, [id]);
 
   return (
     <div className="p-4">
@@ -83,11 +105,11 @@ function NewBlogPostPage() {
       </form>
       {showSuccessPopup && (
         <div className="fixed bottom-4 right-4 p-4 bg-green-500 text-white rounded-lg shadow-lg">
-          Post submitted successfully!
+          Post updated successfully!
         </div>
       )}
     </div>
   );
 }
 
-export default NewBlogPostPage;
+export default EditBlogPostPage;
