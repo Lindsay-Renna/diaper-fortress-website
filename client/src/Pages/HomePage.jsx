@@ -58,7 +58,7 @@ function HomePage() {
             .slice(0, displayLimit)
             .map((post) => (
               <BlogCard
-                key={post.id}
+                key={post._id}
                 imageSrcPath={post.coverURL}
                 title={post.title}
                 description={post.content}

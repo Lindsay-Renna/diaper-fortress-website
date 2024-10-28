@@ -1,13 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthProvider';
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { isAdmin } = useAuth();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="flex items-center justify-between bg-stone-800 py-6 px-4 z-10">
+    <div
+      className={`${
+        isScrolled
+          ? 'bg-stone-800 bg-opacity-80 backdrop-blur-md fixed top-0 left-0 right-0'
+          : 'bg-stone-800'
+      } flex items-center justify-between py-6 px-4 z-10 transition-opacity duration-300`}
+    >
       <Link to="/">
         <img
           className="w-40 transform transition duration-300 hover:scale-105"
