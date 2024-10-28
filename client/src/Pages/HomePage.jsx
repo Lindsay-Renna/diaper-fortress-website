@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import BlogCard from '../Components/BlogCard';
+import LoadMoreButton from '../Components/LoadMoreButton';
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
@@ -68,12 +69,7 @@ function HomePage() {
             ))}
 
         {!isLoading && displayLimit < blogPosts.length && (
-          <button
-            onClick={loadMorePosts}
-            className="mt-8 px-4 py-2 bg-mytharra-purple text-white rounded-lg hover:bg-mytharra-purple-dark"
-          >
-            Load More
-          </button>
+          <LoadMoreButton loadMorePosts={loadMorePosts} />
         )}
       </div>
     </main>
