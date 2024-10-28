@@ -13,6 +13,7 @@ function EditBlogPostPage() {
   const { id } = useParams();
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
+  const [coverURL, setCoverURL] = useState('');
   const [videoURL, setVideoURL] = useState('');
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ function EditBlogPostPage() {
     try {
       const { data } = await axios.get(`${SERVER_URL}/blog/posts/${postID}`);
       setTitle(data.title);
+      setCoverURL(data.coverURL);
       setVideoURL(data.videoURL);
       setContent(data.content);
     } catch (error) {
@@ -36,13 +38,17 @@ function EditBlogPostPage() {
     setTitle(e.target.value);
   };
 
+  const handleCoverImageURLChange = (e) => {
+    setCoverURL(e.target.value);
+  };
+
   const handleVideoURLChange = (e) => {
     setVideoURL(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const updatedPost = { title, videoURL, content };
+    const updatedPost = { title, coverURL, videoURL, content };
 
     try {
       const response = await axios.put(
@@ -73,8 +79,14 @@ function EditBlogPostPage() {
 
   return (
     <div className="p-4">
-      <p className="mb-4">Hello, let's write a blog post today 😃</p>
+      <p className="mb-4">Hello, let's edit a blog post today 😃</p>
       <form onSubmit={handleSubmit}>
+        <label
+          htmlFor="title"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >
+          Title
+        </label>
         <input
           type="text"
           id="title"
@@ -84,6 +96,33 @@ function EditBlogPostPage() {
           required
           onChange={handleTitleChange}
         />
+        <label
+          htmlFor="coverURL"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >
+          Preview Image
+        </label>
+        <input
+          type="text"
+          id="coverURL"
+          value={coverURL}
+          placeholder="Preview Image URL"
+          className="mb-4 bg-gray-50 border border-stone-300 text-stone-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 sm:grow max-w-5xl"
+          onChange={handleCoverImageURLChange}
+        />
+        {coverURL && (
+          <img
+            className="w-1/2 mb-4 rounded-md"
+            src={coverURL}
+            alt="BlogPost preview art"
+          />
+        )}
+        <label
+          htmlFor="coverURL"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >
+          Video URL
+        </label>
         <input
           type="text"
           id="videoURL"
@@ -115,7 +154,7 @@ function EditBlogPostPage() {
         </div>
       </form>
       {showSuccessPopup && (
-        <div className="fixed bottom-4 right-4 p-4 bg-green-500 text-white rounded-lg shadow-lg">
+        <div className="fixed bottom-4 right-4 p-4 bg-purple-500 text-white rounded-lg shadow-lg">
           Post updated successfully!
         </div>
       )}

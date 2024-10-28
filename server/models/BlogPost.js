@@ -5,6 +5,10 @@ const blogPostSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  coverURL: {
+    type: String,
+    required: true,
+  },
   videoURL: {
     type: String,
     required: false,

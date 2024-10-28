@@ -38,16 +38,16 @@ router.get('/posts',async(req,res)=>{
 
 // POST route to create a new blog post
 router.post('/posts', async (req, res) => {
-    const { title, videoURL, content } = req.body;
+    const { title, coverURL, videoURL, content } = req.body;
   
     // Validate the request body
-    if (!title || !content) {
+    if (!title || !coverURL || !content) {
       return res.status(400).json({ message: 'All fields are required' });
     }
   
     try {
       // Create a new blog post document
-      const newPost = new BlogPost({ title, videoURL, content });
+      const newPost = new BlogPost({ title, coverURL, videoURL, content });
       // Save it to the database
       await newPost.save();
       res.status(201).json({ message: 'Post created successfully', post: newPost });
@@ -61,12 +61,12 @@ router.post('/posts', async (req, res) => {
 
   router.put('/posts/:id', async (req, res) => {
     const { id } = req.params;
-    const { title, videoURL, content } = req.body;
+    const { title, coverURL, videoURL, content } = req.body;
   
     try {
       const updatedPost = await BlogPost.findByIdAndUpdate(
         id,
-        { title, videoURL, content },
+        { title, coverURL, videoURL, content },
         { new: true }
       );
   
