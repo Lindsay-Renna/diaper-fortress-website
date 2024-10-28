@@ -7,11 +7,11 @@ function BlogCard({ imageSrcPath, title, date, description, author }) {
 
   return (
     <div className="max-w-screen-lg w-full text-white">
-      <h2 className="ml-1 mb-2 mt-4 text-gray-600">
+      <h2 className="ml-1 mb-2 mt-4 text-stone-400 dark:text-gray-200">
         {date} <span className="hidden sm:inline">- Written by {author}</span>
       </h2>
-      <div className="border-black border-solid border-2 rounded-lg flex flex-col w-full bg-zinc-800">
-        <div className="w-full overflow-hidden">
+      <div className="border-black dark:border-zinc-900 border-solid border-2 rounded-lg flex flex-col w-full bg-zinc-800">
+        <div className="w-full overflow-hidden rounded-t-lg">
           <img
             className="w-full h-full"
             src={

@@ -9,11 +9,11 @@ function HomePage() {
   const [blogPosts, setBlogPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [displayLimit, setDisplayLimit] = useState(5);
+  const [scrollButtonVisible, setScrollButtonVisible] = useState(false);
 
   const getBlogPosts = async () => {
     try {
       const { data } = await axios.get(`${SERVER_URL}/blog/posts`);
-      console.log(data);
       setBlogPosts(data);
       setIsLoading(false);
     } catch (error) {
@@ -26,8 +26,20 @@ function HomePage() {
     setDisplayLimit((prevLimit) => prevLimit + 5);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   useEffect(() => {
     getBlogPosts();
+
+    const handleScroll = () => {
+      const heroHeight = document.getElementById('hero')?.offsetHeight || 0;
+      setScrollButtonVisible(window.scrollY > heroHeight);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -72,6 +84,18 @@ function HomePage() {
           <LoadMoreButton loadMorePosts={loadMorePosts} />
         )}
       </div>
+      <button
+        onClick={scrollToTop}
+        className={`fixed -bottom-2 -right-2 sm:bottom-10 sm:-right-2 w-12 h-12 pl-3 sm:p-2 bg-mytharra-purple hover:bg-mytharra-purple-dark rounded-xl transition-opacity duration-300 ${
+          scrollButtonVisible ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <img
+          className="w-4 sm:w-6 bounce-arrow-up"
+          src="/icons/up-arrow.svg"
+          alt="Scroll to top"
+        />
+      </button>
     </main>
   );
 }

@@ -70,3 +70,21 @@
 button:hover img.bounce-arrow {
 	animation: bounce-arrow 0.6s ease-in-out;	
   }
+
+  /* Bounce animation */
+@keyframes bounce-arrow-up {
+	0% {
+	  transform: translateY(0);
+	}
+	50% {
+	  transform: translateY(-4px); /* Move down */
+	}	
+	100% {
+	  transform: translateY(0); /* Return to original position */
+	}
+  }
+  
+/* Apply animation when the parent button is hovered */
+button:hover img.bounce-arrow-up {
+	animation: bounce-arrow-up 0.4s ease-in-out;	
+  }
