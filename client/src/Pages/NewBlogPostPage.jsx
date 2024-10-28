@@ -73,12 +73,23 @@ function NewBlogPostPage() {
 
         <div className="flex flex-col items-center w-full max-w-screen-xl">
           <BlogEditor content={content} setContent={setContent} />
-          <button
-            type="submit"
-            className="focus:outline-none text-white bg-stone-700 hover:bg-stone-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-8 py-4 my-3 md:min-w-min dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-900 md:whitespace-nowrap"
-          >
-            Submit
-          </button>
+          <div className="flex gap-10">
+            <button
+              type="submit"
+              className="focus:outline-none text-white bg-stone-700 hover:bg-stone-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-8 py-4 my-3 md:min-w-min dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-900 md:whitespace-nowrap"
+            >
+              Submit
+            </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/admin');
+              }}
+              className="focus:outline-none text-white bg-stone-700 hover:bg-stone-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-8 py-4 my-3 md:min-w-min dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-900 md:whitespace-nowrap"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </form>
       {showSuccessPopup && (

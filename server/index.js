@@ -4,6 +4,7 @@ import "dotenv/config";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.js";
 import blogRoutes from "./routes/blog.js";
+import wishlistRoutes from "./routes/wishlist.js"
 import mongoose from "mongoose";
 
 dotenv.config();
@@ -23,6 +24,7 @@ mongoose.connect(process.env.MONGO_URI,{useNewUrlParser:true,useUnifiedTopology:
 
 app.use("/auth", authRoutes);
 app.use("/blog", blogRoutes);
+app.use("/wishlist", wishlistRoutes);
 
 const PORT = process.env.PORT || 8080;
 

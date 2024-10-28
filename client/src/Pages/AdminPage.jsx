@@ -108,7 +108,7 @@ function AdminPage() {
                       </td>
                       <td className="py-4">
                         <img
-                          className="w-5 cursor-pointer transform transition-transform duration-300 hover:scale-110"
+                          className="min-w-5 w-5 cursor-pointer transform transition-transform duration-300 hover:scale-110"
                           src="/icons/delete.svg"
                           alt="delete icon"
                           onClick={() => handleDelete(post._id)}
