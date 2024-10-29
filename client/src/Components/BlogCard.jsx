@@ -23,10 +23,16 @@ function BlogCard({ imageSrcPath, title, date, description, author, id }) {
           />
         </div>
         <div className="p-4">
-          <h1 className="text-lg md:text-3xl mb-4">{title}</h1>
-          <p className="text-md md:text-xl">{truncatedDescription}</p>
+          <Link className="" to={`/post/${id}`}>
+            <h1 className="text-lg md:text-3xl mb-4 hover:underline hover:decoration-purple-500">
+              {title}
+            </h1>
+          </Link>
+          <p className="text-md md:text-xl opacity-70">
+            {truncatedDescription}
+          </p>
         </div>
-        <div className=" p-4 buttons flex gap-5 text-mytharra-purple">
+        <div className=" p-4 buttons flex gap-5 text-purple-300">
           <p className="hover:text-mytharra-purple-dark">SHARE</p>
           <Link
             className="hover:text-mytharra-purple-dark"

@@ -8,12 +8,10 @@ function BlogPostPage() {
   const [blogPost, setBlogPost] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { postID } = useParams();
-  console.log('Post ID from useParams:', postID);
 
   const getSingleBlogPost = async () => {
     try {
       const res = await axios.get(`${SERVER_URL}/blog/posts/${postID}`);
-      console.log(res.data);
       setBlogPost(res.data);
       setIsLoading(false);
     } catch (error) {
@@ -30,8 +28,10 @@ function BlogPostPage() {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <div className="flex justify-center p-4">
-      <BlogPost blogPost={blogPost} />
+    <div className="bg-zinc-50 dark:bg-zinc-900">
+      <div className="flex justify-center p-4">
+        <BlogPost blogPost={blogPost} />
+      </div>
     </div>
   );
 }
