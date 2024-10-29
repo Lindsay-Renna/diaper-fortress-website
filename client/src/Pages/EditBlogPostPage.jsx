@@ -25,6 +25,7 @@ function EditBlogPostPage() {
   const getBlogPost = async (postID) => {
     try {
       const { data } = await axios.get(`${SERVER_URL}/blog/posts/${postID}`);
+      console.log(data);
       setTitle(data.title);
       setCoverURL(data.coverURL);
       setVideoURL(data.videoURL);

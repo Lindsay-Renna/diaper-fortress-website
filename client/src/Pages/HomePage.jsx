@@ -77,6 +77,7 @@ function HomePage() {
                 description={post.content}
                 date={post.createdAt.slice(0, 10)}
                 author="Ryan Renna"
+                id={post._id}
               />
             ))}
 

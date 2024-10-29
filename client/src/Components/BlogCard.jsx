@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 /* eslint-disable react/prop-types */
-function BlogCard({ imageSrcPath, title, date, description, author }) {
+function BlogCard({ imageSrcPath, title, date, description, author, id }) {
   const truncatedDescription =
     description.length > 250 ? `${description.slice(0, 250)}...` : description;
 
@@ -28,7 +28,11 @@ function BlogCard({ imageSrcPath, title, date, description, author }) {
         </div>
         <div className=" p-4 buttons flex gap-5 text-mytharra-purple">
           <p className="hover:text-mytharra-purple-dark">SHARE</p>
-          <Link className="hover:text-mytharra-purple-dark" target="blank">
+          <Link
+            className="hover:text-mytharra-purple-dark"
+            to={`/post/${id}`}
+            target="blank"
+          >
             <p>READ MORE</p>
           </Link>
         </div>
