@@ -13,13 +13,16 @@ import AuthFailPage from './Pages/AuthFailPage';
 import { AuthProvider } from './hooks/AuthProvider';
 import EditBlogPostPage from './Pages/EditBlogPostPage';
 import BlogPostPage from './Pages/BlogPostPage';
+import ScrollToTop from './Components/ScrollToTop';
 
 function App() {
   return (
     <>
       <AuthProvider>
         <BrowserRouter>
+          <ScrollToTop />
           <Header />
+          <div className="absolute bg-stone-800 w-full py-11 px-4"></div>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
