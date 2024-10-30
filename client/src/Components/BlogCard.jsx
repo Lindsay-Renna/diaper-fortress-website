@@ -34,11 +34,7 @@ function BlogCard({ imageSrcPath, title, date, description, author, id }) {
         </div>
         <div className=" p-4 buttons flex gap-5 text-purple-300">
           <p className="hover:text-mytharra-purple-dark">SHARE</p>
-          <Link
-            className="hover:text-mytharra-purple-dark"
-            to={`/post/${id}`}
-            target="blank"
-          >
+          <Link className="hover:text-mytharra-purple-dark" to={`/post/${id}`}>
             <p>READ MORE</p>
           </Link>
         </div>

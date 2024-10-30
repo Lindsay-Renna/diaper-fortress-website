@@ -48,10 +48,10 @@ function HomePage() {
         <div className="absolute inset-0 bg-[url('https://cdn.mos.cms.futurecdn.net/9GTJo42N2uEr99T8Svxava.png')] bg-auto bg-no-repeat bg-center opacity-50"></div>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-black w-full flex flex-col grow justify-center items-center text-3xl gap-8">
-          <h1 className="text-8xl drop-shadow-2xl text-white">
+          <h1 className="text-8xl drop-shadow-2xl text-white animate__animated animate__fadeIn">
             Build, Play, Thrive.
           </h1>
-          <p className="drop-shadow-lg text-white">
+          <p className="drop-shadow-lg text-white animate__animated animate__fadeInUp fade-up">
             Where Tiny Heroes Conquer Big Adventures!
           </p>
         </div>
