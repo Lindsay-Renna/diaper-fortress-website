@@ -35,6 +35,7 @@ function HomePage() {
 
     const handleScroll = () => {
       const heroHeight = document.getElementById('hero')?.offsetHeight || 0;
+
       setScrollButtonVisible(window.scrollY > heroHeight);
     };
 
@@ -44,7 +45,7 @@ function HomePage() {
 
   return (
     <main className="flex-grow">
-      <div id="hero" className="relative flex min-h-screen -mt-20 -z-10">
+      <div id="hero" className="relative flex min-h-screen -z-10">
         <div className="absolute inset-0 bg-[url('https://cdn.mos.cms.futurecdn.net/9GTJo42N2uEr99T8Svxava.png')] bg-auto bg-no-repeat bg-center opacity-50"></div>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-black w-full flex flex-col grow justify-center items-center text-3xl gap-8">

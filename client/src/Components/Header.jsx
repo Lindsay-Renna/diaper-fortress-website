@@ -22,7 +22,7 @@ export default function Header() {
     <div
       className={`${
         isScrolled
-          ? 'bg-stone-800 bg-opacity-80 backdrop-blur-md fixed top-0 left-0 right-0'
+          ? 'bg-stone-800 bg-opacity-80 backdrop-blur-md sticky top-0 left-0 right-0'
           : 'bg-stone-800'
       } flex items-center justify-between py-6 px-4 z-10 transition-opacity duration-300`}
     >
